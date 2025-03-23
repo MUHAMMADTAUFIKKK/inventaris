@@ -366,7 +366,7 @@ CREATE TABLE `barang` {
 **Edit Peminjaman**
 ![saet](aset/edit_peminjaman.png)
 
-**Detail Barang**
+**Detail Peminjaman**
 ![saet](aset/detail_peminjaman.png)
 
  **Penjelasan Hasil Output dari Kode Program**
