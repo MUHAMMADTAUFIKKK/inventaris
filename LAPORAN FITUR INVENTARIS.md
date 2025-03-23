@@ -30,6 +30,7 @@ Fitur ini memungkinkan pencatatan peminjaman barang. Peminjam dapat mencatat bar
 
 **EDIT BARANG**
 ![dti](aset/EDIT.png)
+
 **DetailBarang**
 ![sett](aset/detaill_barang.png)
 **Penjelasan Hasil Program**
@@ -358,10 +359,13 @@ CREATE TABLE `barang` {
 **Screenshot Fitur (Peminjaman)**
 **Daftar Peminjaman**
 ![saet](aset/peminjaman.png)
+
 **Tambah Peminjaman**
 ![saet](aset/tambah_peminjaman.png)
+
 **Edit Peminjaman**
 ![saet](aset/edit_peminjaman.png)
+
 **Detail Barang**
 ![saet](aset/detail_peminjaman.png)
 
@@ -831,6 +835,7 @@ Fitur ini memiliki peran penting dalam **pengelolaan data peminjaman barang** di
     - Menggunakan **session validation** agar hanya pengguna yang telah login yang dapat mengakses fitur ini.
 
 ---
+
 ## 4. Relasi
 ##### **Relasi dalam Fitur Manajemen Barang**
  **1. Tujuan Relasi**
@@ -935,6 +940,7 @@ Dengan adanya relasi ini, fitur peminjaman dapat berjalan dengan baik dan memast
 
 
 ---
+
 ## 5. Agregasi
 
 **Agregasi dalam Fitur Peminjaman**
@@ -990,7 +996,7 @@ Agregasi dalam fitur ini bertujuan untuk:
     FROM barang b
     JOIN kategori k ON b.id_kategori = k.id_kategori
     GROUP BY k.nama_kategori
-    ```
+   ```
 - Query ini mengambil data dari tabel `barang` dan `kategori`, lalu menghitung **rata-rata harga barang** (`AVG(harga_barang)`) untuk setiap kategori (`GROUP BY k.nama_kategori`).
     - Output query ini berupa daftar kategori dengan nilai rata-rata harga barang dalam kategori tersebut.
 1. **Total Nilai Barang**
@@ -999,6 +1005,7 @@ Agregasi dalam fitur ini bertujuan untuk:
            (stok_bagus + stok_rusak_ringan + stok_rusak_berat) * harga_barang AS total_nilai
     FROM barang
     ```
+
     - Query ini menjumlahkan stok barang berdasarkan kondisi (`stok_bagus`, `stok_rusak_ringan`, dan `stok_rusak_berat`), lalu mengalikannya dengan harga barang untuk mendapatkan total nilai barang.
     - Output query ini berupa daftar barang beserta total nilai stoknya.
 
@@ -1009,6 +1016,7 @@ Agregasi dalam fitur ini bertujuan untuk:
 4. **Hasil agregasi ditampilkan dalam tabel**, sehingga pengguna dapat menganalisis harga barang rata-rata per kategori dan total nilai barang berdasarkan stok.
 
 ---
+
 ## 6. Autentikasi
 1. **Fitur yang Diproteksi**
 Autentikasi dalam sistem ini bertujuan untuk memastikan bahwa hanya pengguna yang memiliki hak akses tertentu yang dapat mengakses fitur atau halaman tertentu.
@@ -1052,6 +1060,7 @@ if (isset($_POST['login'])) {
 ```
 
 #### **kode Proteksi Akses**
+
 ```php
 if (!isset($_SESSION['id_user'])) {
     header("Location: login.php"); // Redirect ke halaman login
